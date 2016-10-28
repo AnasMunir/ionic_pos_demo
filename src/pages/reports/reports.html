@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="beer"></ion-icon>
+    </button>
+    <ion-title>Reports</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-grid ion-item>
+    <!-- <ion-row >
+      <ion-col width-20 offset-10>
+        <h3>Date</h3>
+      </ion-col>
+      <ion-col width-25 offset-8>
+        <h3>Total</h3>
+      </ion-col>
+      <ion-col width-30>
+        <h3>Paid</h3>
+      </ion-col>
+      <ion-col width-30>
+        <h3>Products</h3>
+      </ion-col>
+    </ion-row> -->
+    <ion-row *ngFor="let invoice of invoices">
+      <ion-col width-30>
+        {{ invoice.date.getDate() }}/{{ invoice.date.getMonth() }}/{{ invoice.date.getFullYear() }}
+      </ion-col>
+      <ion-col width-20>
+        {{ invoice.invoice_total }}
+      </ion-col>
+      <ion-col width-20>
+        {{ invoice.cash_paid }}
+      </ion-col>
+      <ion-col width-20>
+        {{ invoice.items.length }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
